@@ -1,0 +1,84 @@
+<!--WISH LIST [* unstarted, ~ in progress, x error, v complete]
+v calculate & display percent error
+~ error messages when form is incomplete
+x hit Enter to calculate [calculates on click out of first input box]
+v count/label increases & decreases
+* selector for rounding of diameter (less than, greater than, as close as possible)
+v page to link to with all the math on it
+~ create a css and make the page prettier: margins on sides, colors, etc.
+v auto "last updated"
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>Crochet Sphere Calculator</title>
+<link rel="stylesheet" type="text/css" href="sphere.css">
+</head>
+
+<body>
+
+<div class="page-header">
+	<h1>Crochet Sphere Calculator</h1>
+</div>
+
+<div id="introduction">
+<p>This applet is designed to generate an outline for a mathematically correct crocheted (or knitted*) sphere. All you need to input is your stitch and row gauge and the desired diameter of your sphere, and the applet will tell you the number of rows needed, the increases/decreases for each row, and how "perfect" your sphere will be. I'm working on an algorithm to distribute increases/decreases; for now, you'll have to use your best judgment on that.<br /><br />
+<i>*The geometry of this formula was designed for the discrete circular rows possible with crochet, not for spiraling rounds. However, it will do okay with continuous crochet or knitting rows, though I can't confirm that your finished product will be as close to spherical.</i></p>
+</div>
+
+<hr>
+
+<div id="input" onkeypress="return calculateAll();">
+<p>Select your units of measure, fill in your gauge and the diameter sphere you want, then hit "Calculate!"</p>
+<table>
+	<tr>
+		<td>Units:
+		<select id="units" onchange="populateUnits();">
+			<option value="inches" selected>inches</option>
+			<option value="centimeters">centimeters</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td>Stitch gauge:
+		<input id="stitch-gauge" type="text" size="4" value="" /> stitches per <input id="gauge-width" type="text" size="3" value="" /> <span class="units-label">----</span></td>
+	</tr>
+	<tr>
+		<td>Row gauge:
+		<input id="row-gauge" type="text" size="4" value="" /> rows per <input id="gauge-height" type="text" size="3" value="" /> <span class="units-label">----</span></td>
+	</tr>
+	<tr>
+		<td>Desired diameter: <input id="diameter" type="text" size="4" value="" /> <span class="units-label">----</span></td>
+	</tr>
+</table>
+<button onclick="calculateAll();">Calculate!</button>
+</div>
+
+<hr>
+
+<div id="output">
+<p id="message">Hit "Calculate!" to display your results here.</p>
+<table id="diameter-actual"></table>
+<table id="total-rows"></table>
+<table id="r-squared"></table><br />
+<table id="rows-output">
+	<tbody>
+	</tbody>
+</table>
+</div>
+
+<hr>
+
+<div id="footer">
+<p>Version 0.0. Last updated <span id="date-updated">----</span>. This applet was formulated by <a href="https://www.ravelry.com/people/bookworm3x4">Emmett Wald</a>. <a href="sphere_math.html">Click here read about the mathematics behind this applet.</a> For questions or corrections, contact <a href="mailto:emmettmwald@gmail.com?Subject=crochet%20sphere%20calculator">emmettmwald@gmail.com</a>.</p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+<script src="sphere.js"></script>
+</body>
+</html>
+
+<!--Sources for info
+* https://onlinecourses.science.psu.edu/stat501/node/255
+* w3schools-->

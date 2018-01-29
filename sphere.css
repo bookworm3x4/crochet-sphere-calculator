@@ -1,0 +1,59 @@
+body {
+	background-color: mintcream;
+	margin: 10px 25px;
+}
+
+.page-header {
+	color: saddlebrown;
+	text-align: center;
+	font-family: "Overlock", Arial, sans-serif;
+	font-weight: bold;
+	width: 500px;
+	margin: auto;
+	padding: 0px;
+	border-style: double;
+	border-color: saddlebrown;
+}
+
+h1 {
+	font-size: 2.5em;
+}
+
+h2 {
+	font-size: 1.75em;
+}
+
+p, table, button, option, #units {
+	font-family: "Centaur", Cochin, serif;
+	font-size: 1.15em;
+}
+
+button {
+	font-size: 1em;
+	cursor: pointer;
+	margin: 10px 0;
+}
+
+#units {
+	cursor: pointer;
+}
+
+#input {
+	padding: 0 100px;
+}
+
+#message {
+	text-align: center;
+	font-size: 1.25em;
+	color: sienna;
+}
+
+#input td {
+	height: 1.75em;
+}
+
+/* This one isn't working. */
+#diameter-actual table, #total-rows table, #r-squared table {
+	height: 1.75em;
+	color: sienna;
+}

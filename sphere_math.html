@@ -1,0 +1,72 @@
+<!--WISH LIST [* unstarted, ~ in progress, x error, v complete]
+* create images: stitch gauge, sphere w angles
+* make layout (width) suit math layout better
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>Crochet Sphere Calculator Mathematics</title>
+<link rel="stylesheet" type="text/css" href="sphere.css">
+</head>
+
+<body>
+<div class="page-header">
+	<h1>The Math Behind</h1>
+	<h2>the Crochet Sphere Calculator</h2>
+</div>
+
+<div id="introduction">
+	<p>This page lays out the mathematics used to develop the Crochet Sphere Calculator. <a href="sphere.html">Click here to use the calculator.</a> (If you don't see anything below, please be patient; the pretty math view of this page may take a minute to load!)</p>
+</div>
+
+<hr>
+
+<div id="mathematics">
+<h4>Inputs</h4>
+The user's inputs produce the following values:
+<ul>
+	<li>\(g_s =\) stitch gauge, the number of stitches per inch/cm (horizontal),</li>
+	<li>\(g_r =\) row gauge, the number of rows per inch/cm (vertical),</li>
+	<li>\(d =\) desired sphere diameter.</li>
+</ul>
+
+<h4>Stitch Counts</h4>
+The total number of rows needed, \(n = \frac{\pi d}{2} \cdot g_r\), rounded to the nearest whole number. We can then calculate the adjusted diameter due to rounding, \(d' = n \cdot \frac{2}{\pi g_r}\).<br/><br/>
+
+We can now calculate a set of indexed variables for each row:
+<ul>
+	<li>\(\theta_i\), the angle of elevation/depression from the center of the sphere to row \(i\): \(\theta_i = \pi (\frac{i}{n} - \frac{1}{2n})\),</li>
+	<li>\(r_i\), the radius of row \(i\): \(r_i = \frac{d}{2} \sin \theta_i\),</li>
+	<li>\(c_i\), the circumference of row \(i\): \(c_i = 2 \pi r_i\),</li>
+	<li>\(\hat s_i\), the number of stitches in row \(i\): \(s_i = c_i \cdot g_s\); \(\hat s_i = s_i\) rounded to the nearest whole number.</li>
+</ul>
+Or, mashing it all up to give \(s_i\) in terms of the original variables,
+$$s_i = \sin(\frac{2i-1}{dg_r}) \cdot \pi d \cdot g_s.$$
+Because this produces a decimal value, \(s_i\) is rounded to the nearest whole number to get \(\hat s_i\), the functional number of stitches for row \(i\).
+
+<h4>Error Calculation</h4>
+Now, let's calculate the accumulated error (relative to \(d'\), not \(d\)). I chose to use \(r^2\), as many people are familiar with this metric. Let's start by laying out the variables that will be used for these calculations:
+<ul>
+	<li>\(c_i\), the calculated circumference of row \(i\), as above,</li>
+	<li>\(\hat c_i\), the real circumference of row \(i\): \(\hat c_i = \frac{\hat s_i}{g_s}\),</li>
+	<li>\(\bar c\), the average of all of the circumferences, \(\frac{\sum_{i=1}^n \hat c_i}{n}\).</li>
+</ul>
+The formula for \(r^2\) is
+$$r^2 = \frac{ESS}{TSS}.$$
+where ESS is the explained sum of squares and TSS is the total sum of squares (see <a href="https://en.wikipedia.org/wiki/Explained_sum_of_squares">the Wiki article on ESS</a> for more info).
+$$r^2 = \frac{ESS}{TSS} = \frac{\sum_{i=1}^n (\hat c_i\ - \bar c)^2}{\sum_{i=1}^n (c_i\ - \bar c)^2}.$$
+This \(r^2\) is given as a decimal value between 0 and 1; the value is converted to a percentage before being displayed.
+</div>
+
+<hr>
+
+<div>
+<p>Now that you know how the calculator works, <a href="sphere.html">go give it a try</a>! The applet was formulated by <a href="https://www.ravelry.com/people/bookworm3x4">Emmett Wald</a>. This page was last updated <script type="text/javascript">document.write(document.lastModified);</script>. For questions or corrections, contact <a href="mailto:emmettmwald@gmail.com?Subject=crochet%20sphere%20calculator">emmettmwald@gmail.com</a>.</p>
+</div>
+</body>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</html>
