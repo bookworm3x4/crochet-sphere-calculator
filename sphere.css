@@ -3,6 +3,11 @@ body {
 	margin: 10px 25px;
 }
 
+#disclaimer {
+	color: red;
+	font-style: italic;
+}
+
 .page-header {
 	color: saddlebrown;
 	text-align: center;
@@ -21,11 +26,6 @@ h1 {
 
 h2 {
 	font-size: 1.75em;
-}
-
-h4 {
-	color: red;
-	font-style: italic;
 }
 
 p, table, button, option, #units {
