@@ -14,6 +14,6 @@ error<br/>
 
 unstarted<br/>
 * selector for rounding of diameter (less than, greater than, as close as possible)<br/>
-* create images: stitch gauge, sphere w angles<br/>
-* make layout (width) suit math page better
-
+* create images for math page: stitch gauge, sphere w angles<br/>
+* make layout (width) suit math page better<br/>
+* make the button not have huge font
