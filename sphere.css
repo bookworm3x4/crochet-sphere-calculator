@@ -23,6 +23,11 @@ h2 {
 	font-size: 1.75em;
 }
 
+h4 {
+	color: red;
+	font-style: italic;
+}
+
 p, table, button, option, #units {
 	font-family: "Centaur", Cochin, serif;
 	font-size: 1.15em;
