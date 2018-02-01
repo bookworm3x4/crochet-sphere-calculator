@@ -17,3 +17,4 @@ unstarted<br/>
 * create images for math page: stitch gauge, sphere w angles<br/>
 * make layout (width) suit math page better<br/>
 * make the button not have huge font
+* ! algorithm for distributing increases/decreases
